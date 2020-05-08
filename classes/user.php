@@ -67,6 +67,18 @@ class User extends Password{
 		    echo '<p class="bg-danger">'.$e->getMessage().'</p>';
 		}
 	}
+	public function get_sender_name_from_id($s_id){
+			try {
+			$stmt = $this->_db->prepare("SELECT * FROM members WHERE memberID = :memberID");
+			$stmt->execute(array(':memberID' => $s_id));
+
+			$row =$stmt->fetch();
+			return $row;
+
+		} catch(PDOException $e) {
+		    echo '<p class="bg-danger">'.$e->getMessage().'</p>';
+		}
+	}
 
 }
 

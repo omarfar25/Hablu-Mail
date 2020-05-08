@@ -13,18 +13,20 @@
     $user_email = $row['email'];
     $user_address = $row['address'];
     $user_gender = $row['gender'];
+    $user_birth_of_date = $row['birth_of_date'];
 
  ?>
 
- <?php 
+ <?php
     // update Profile
  if (isset($_POST['update_profile_info'])) {
      $f_name = $_POST['f_name'];
      $l_name = $_POST['l_name'];
      $address = $_POST['address'];
      $gender = $_POST['gender'];
+     $birth_of_date = $_POST['birth_of_date'];
 
-     $sta =hablu_update_profile($db, $f_name, $l_name, $address, $gender);
+     $sta =hablu_update_profile($db, $f_name, $l_name, $address, $gender,$birth_of_date);
      if ($sta == true ) {
          $msg = '<div class="alert alert-success"> Profile Update Successfull!</div>';
          // header('location: ?action=edit');
@@ -106,7 +108,6 @@
                     <?php }else{?>
                         <img src="assets/images/user_profile_pic/<?php echo $profile_pic_url; ?>" alt="profile image-thumn" class="img-fluid rounded-circle shadow">
                     <?php } ?>
-                
                 <a href="?action=change_pic" class="btn btn-light px-3 shxadow">Edit</a>
             </div>
 			<br>
@@ -137,6 +138,9 @@
                                     <input type="radio" name="gender" value="Other" required <?php if($user_gender == 'Other' ) {echo "checked";} ?>>Other
                                 </h5>
                                  <hr>
+                                 <div class="text-muted ">birth of date</div>
+                                 <h5><input class="form-control" type="date" name="birth_of_date" value="<?php echo $user_birth_of_date;?>" required></h5>
+                                 <hr>
                                  <div class="text-muted ">Address</div>
                                  <h5><input class="form-control" type="text" name="address" value="<?php echo $user_address;?>" required></h5>
                                  <hr>
@@ -146,14 +150,13 @@
                                      </div>
                                      <div class="col-6 text-right">
                                          <a href="profile.php" class="btn btn-light border ">Back To Profile</a>
-                                         
                                      </div>
                                  </div>
 
 
                              </form>
                          </div>
-                        <?php    
+                        <?php
                         break;
 
                         case 'change_pass':?>
@@ -173,7 +176,6 @@
                                      </div>
                                      <div class="col-6 text-right">
                                          <a href="profile.php" class="btn btn-light border ">Back To Profile</a>
-                                         
                                      </div>
                                  </div>
 
@@ -214,6 +216,9 @@
                  <hr>
                  <div class="text-muted ">Gender</div>
                  <h5><?php echo $user_gender; ?></h5>
+                 <hr>
+                 <div class="text-muted ">birth of date</div>
+                 <h5><?php echo $user_birth_of_date; ?></h5>
                  <hr>
              </div>
          <?php } ?>

@@ -1,13 +1,14 @@
 <?php 
 
-	function hablu_update_profile($db, $f_name, $l_name, $address, $gender){
+	function hablu_update_profile($db, $f_name, $l_name, $address, $gender,$birth_of_date){
 		try {
-			$stmt = $db->prepare("UPDATE members SET first_name=:f_name,last_name=:l_name,address=:address,gender=:gender WHERE memberID = :memberID");
+			$stmt = $db->prepare("UPDATE members SET first_name=:f_name,last_name=:l_name,address=:address,gender=:gender,birth_of_date=:birth_of_date WHERE memberID = :memberID");
 			$stmt->execute(array(
 				':f_name' => $f_name,
 				':l_name' => $l_name,
 				':address' =>$address,
 				':gender' => $gender,
+				':birth_of_date' => $birth_of_date,
 				':memberID' => $_SESSION['memberID']
 			));
 			return true;

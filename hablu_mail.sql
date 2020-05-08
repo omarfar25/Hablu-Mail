@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2020 at 01:10 PM
+-- Generation Time: May 06, 2020 at 12:11 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -40,6 +40,15 @@ CREATE TABLE `mail` (
   `mail_time` varchar(20) NOT NULL,
   `mail_status` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `mail`
+--
+
+INSERT INTO `mail` (`id`, `sender_id`, `reciver_id`, `sender_mail`, `reciver_mail`, `mail_subject`, `mail_content`, `mail_date`, `mail_time`, `mail_status`) VALUES
+(4, 1, 1, 'tarik@hablumail.com', 'tarik@hablumail.com', 'just test mail', 'qqqq', '05-05-2020', '04:43:06', 'inbox'),
+(5, 1, 1, 'tarik@hablumail.com', 'tarik@hablumail.com', 'it is my second message', 'hello mr/', '05-05-2020', '04:55:35', 'inbox'),
+(6, 1, 2, 'tarik@hablumail.com', 'hablu@hublumail.com', 'need to online metting very early', 'hello........', '05-05-2020', '04:57:19', 'inbox');
 
 -- --------------------------------------------------------
 
@@ -94,7 +103,7 @@ ALTER TABLE `members`
 -- AUTO_INCREMENT for table `mail`
 --
 ALTER TABLE `mail`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `members`
